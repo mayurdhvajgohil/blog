@@ -1,0 +1,25 @@
+<%- include("header") %>
+<h2>Dashboard Area</h2>
+
+<div class="addpost">
+    <a href="/add-post">+add post</a>
+</div>
+
+<ul class = "add_post">
+    
+    <% data.forEach(Post =>{  %>
+
+        <li class="mainlist">
+            <a href="/post/<%= Post._id %>" class="datebodyboth" >
+              <%= Post.title %></a>
+           
+              <a href="/edit_post/<%= Post._id %>" class="dashbutn">Edit</a>
+             <form action="/delete_post/<%= Post._id %>?_method=DELETE" method="post">
+                <input type="submit" value="Delete">
+             </form>
+            
+            </li>
+    
+    <% })  %>
+
+</ul>

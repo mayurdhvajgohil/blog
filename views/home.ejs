@@ -1,0 +1,43 @@
+
+
+<%- include("layout/header") %>
+<style>
+
+    
+</style>
+
+<h1>LATEST POST</h1>
+
+<p class="view">
+    <a href="#" >view order </a>
+    </p>
+<div class="main">
+<ul class="maindiv">
+<% data.forEach(Post =>{  %>
+
+    <li class="mainlist">
+        <a href="/post/<%= Post._id %>" class="datebodyboth" >
+          
+            <div>  <%= Post.body %></div>  
+            <div class ="datediv">  <%= Post.createdAt.toDateString() %></div>
+        </a>
+        
+         
+            <a href="/edit_post/<%= Post._id %>" class="dashbutn" style="width: 60px; height: 40px; color: rgb(232, 223, 223); background-color: rgb(67, 59, 59);">Edit</a>
+            <form action="/delete_post/<%= Post._id %>?_method=DELETE" method="post">
+                
+<input type="submit" value="delete" style="
+    margin: 0px 0px 0px 350px; width: 60px; height: 40px; color: rgb(232, 223, 223); background-color: rgb(67, 59, 59);
+    font-size: medium;
+    "></input>
+</form>
+
+          
+    </li>
+
+<% })  %>
+</ul>
+</div>
+
+
+<%- include("layout/footer") %>

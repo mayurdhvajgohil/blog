@@ -1,0 +1,31 @@
+<%- include("layout/header") %>
+
+
+<!-- <%- include("layout/header") %> -->
+<style>
+    .titlearea{
+
+      text-align: center;  
+    }
+    .barea {
+        text-align:justify;
+        border:1px solid black;
+        width : 400px;
+        height: 250px;
+        margin: 100px 35px 10px 0px;
+
+
+
+    }
+    </style>
+<h2>edit page</h2>
+<form action="/edit_post/<%= data._id %>?_method=put" method="post">
+<label>title:</label>
+<input type="text"class="titlearea"  value="<%= data.title %>" name="title" id="">
+
+ <label>content:</label>   
+<input type="text"class="barea" value="<%= data.body %>" name="body">
+   
+
+<input type="submit" value="update" style="margin: 0px 0px 0px 350px;"></input>
+</form>
